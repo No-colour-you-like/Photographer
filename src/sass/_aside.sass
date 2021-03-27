@@ -1,0 +1,46 @@
+.right-panel
+  position: fixed
+  display: flex
+  align-items: center
+  flex-direction: column
+  width: 135px
+  height: 100% 
+  right: 0
+  top: 0
+  padding: 75px 45px 50px
+  background-color: $grey-color 
+  color: $red-color
+  &__name 
+    text-align: right
+    padding-right: 5px
+    border-right: 5px solid $red-color
+    transform: rotate(-90deg)
+    font-size: 16px 
+    font-weight: 700
+    text-transform: uppercase
+    span 
+      font-size: 14px
+      font-weight: 400
+      color: $red-dark-color
+  &__dots 
+    margin-top: auto
+    margin-bottom: 40px
+  &__dot
+    width: 5px
+    height: 5px
+    margin-bottom: 10px
+    border-radius: 50%
+    background-color: $red-color
+    &:last-child
+      margin-bottom: 0
+  &__numbers 
+    display: flex
+    align-items: flex-end
+  &__active 
+    font-size: 18px
+    font-weight: 700
+    margin-right: 10px
+  &__all 
+    font-size: 12px  
+
+    
