@@ -1,4 +1,8 @@
-  
+$grey-color: #0d0d0f
+$grey-light-color: #5f5f66
+$red-color: #cf3249
+$red-dark-color: #5a151f  
+
 *, *:before, *:after
   box-sizing: border-box
 
@@ -37,9 +41,21 @@ img
   height: 100%
 
 .main 
-  width: 100% 
+  width: calc(100% - 135px)
   height: 100vh
+  
 
-$grey-color: #0d0d0f
-$red-color: #cf3249
-$red-dark-color: #5a151f
+.see-all 
+  display: flex 
+  align-items: center
+  &-text 
+    font-size: 12px
+    text-transform: uppercase
+    margin-right: 14px 
+  &-btn 
+    position: relative
+    width: 32px 
+    height: 32px 
+    border-radius: 50%
+    background-color: #000
+    cursor: pointer
