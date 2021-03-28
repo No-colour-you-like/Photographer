@@ -32,8 +32,33 @@
     margin-bottom: 30px
   &__line 
     position: absolute
+    display: flex
     width: 775px 
     height: 140px
     left: 0 
     top: 465px 
     background-color: #fff
+    overflow: hidden
+    &-image 
+      width: 155px
+      height: 140px
+      overflow: hidden
+    &-img 
+      width: 155px 
+      height: 140px 
+      object-fit: cover
+  &__btns 
+    position: absolute
+    display: flex
+    align-items: center
+    top: 512px
+    right: 105px
+  &__btn, &__divide
+    color: $red-color
+  &__btn 
+    font-size: 11px
+    text-transform: uppercase
+  &__divide 
+    font-size: 40px
+    margin: 0 25px
+      
