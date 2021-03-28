@@ -7,6 +7,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
 }
 
 input, button, textarea {
@@ -83,8 +84,8 @@ img {
   position: fixed;
   top: 50px;
   left: 55px;
-  color: #cf3249;
   z-index: 1;
+  color: #0d0d0f;
 }
 
 .header__menu {
@@ -99,13 +100,12 @@ img {
 .header__menu-line {
   width: 37px;
   height: 2px;
-  background-color: #cf3249;
+  background-color: #0d0d0f;
   margin-right: 20px;
 }
 
 .header__menu-item {
   margin-right: 20px;
-  color: #cf3249;
 }
 
 .header__menu-name, .header__menu-item {
@@ -216,8 +216,8 @@ img {
 }
 
 .right-panel__dot {
-  width: 5px;
-  height: 5px;
+  width: 10px;
+  height: 10px;
   margin-bottom: 10px;
   border-radius: 50%;
   background-color: #cf3249;
@@ -558,7 +558,7 @@ img {
 }
 
 .fifth__link {
-  display: block;
+  display: inline-block;
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 27px;
@@ -598,4 +598,92 @@ img {
 
 .opacity-show {
   opacity: 1;
+}
+
+.grey-color {
+  color: #0d0d0f;
+}
+
+.red-color {
+  color: #cf3249;
+}
+
+.red-background {
+  background-color: #cf3249;
+}
+
+.grey-background {
+  background-color: #0d0d0f;
+}
+
+.second-photo-open {
+  -webkit-animation: secondPhotoOpen 2s;
+          animation: secondPhotoOpen 2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.second-photo-hide {
+  -webkit-animation: secondPhotoHide 2s;
+          animation: secondPhotoHide 2s;
+}
+
+@-webkit-keyframes secondPhotoOpen {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  50% {
+    -webkit-transform: translateX(100px) scale(1);
+            transform: translateX(100px) scale(1);
+  }
+  100% {
+    -webkit-transform: translateX(100px) scale(1.2);
+            transform: translateX(100px) scale(1.2);
+  }
+}
+
+@keyframes secondPhotoOpen {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  50% {
+    -webkit-transform: translateX(100px) scale(1);
+            transform: translateX(100px) scale(1);
+  }
+  100% {
+    -webkit-transform: translateX(100px) scale(1.2);
+            transform: translateX(100px) scale(1.2);
+  }
+}
+
+@-webkit-keyframes secondPhotoHide {
+  0% {
+    -webkit-transform: translateX(100px) scale(1.2);
+            transform: translateX(100px) scale(1.2);
+  }
+  50% {
+    -webkit-transform: translateX(100px) scale(1);
+            transform: translateX(100px) scale(1);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes secondPhotoHide {
+  0% {
+    -webkit-transform: translateX(100px) scale(1.2);
+            transform: translateX(100px) scale(1.2);
+  }
+  50% {
+    -webkit-transform: translateX(100px) scale(1);
+            transform: translateX(100px) scale(1);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
 }
