@@ -3,4 +3,39 @@
 
 .opacity-show
   opacity: 1
-  
+
+.grey-color 
+  color: $grey-color
+
+.red-color 
+  color: $red-color
+
+.red-background 
+  background-color: $red-color 
+
+.grey-background 
+  background-color: $grey-color
+
+.second-photo-open
+  animation: secondPhotoOpen 2s
+  animation-fill-mode: forwards
+
+.second-photo-hide
+  animation: secondPhotoHide 2s
+
+
+@keyframes secondPhotoOpen
+  0%
+    transform: translateX(0)
+  50%
+    transform: translateX(100px) scale(1)
+  100%
+    transform: translateX(100px) scale(1.2)
+
+@keyframes secondPhotoHide
+  0%
+    transform: translateX(100px) scale(1.2)
+  50%
+    transform: translateX(100px) scale(1)
+  100%
+    transform: translateX(0)
