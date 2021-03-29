@@ -10,6 +10,15 @@
   background-color: rgba($grey-color, 0.8)
   backdrop-filter: grayscale(100%)
   transition: 0.8s
+  &__left-block 
+    position: absolute
+    left: 0
+    top: 0
+    width: 360px
+    height: 100%
+    background-color: $grey-color
+    transform: translateX(-100%)
+    transition: 2s
   &__list 
     margin-left: 150px 
   &__name 
@@ -19,16 +28,21 @@
     font-size: 48px 
     font-weight: 700
     color: $grey-light-color
-    transition: 0.3s
+    transition: 1s
     &:before 
+      visibility: hidden
+      opacity: 0
       position: absolute
-      display: none
       content: '/'
       left: -40px
       font-size: 48px 
+      transition: visibility 0.5s, opacity 0.5s
     &:hover 
       color: $red-color
       &:before
-        display: inline-block
+        opacity: 1
+        visibility: visible
+        transition: visibility 0.5s, opacity 0.5s
+
         
       
