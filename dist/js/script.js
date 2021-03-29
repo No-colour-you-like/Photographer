@@ -1,121 +1,80 @@
+// Navigation width dots
 
 const navDots = document.querySelectorAll('.right-panel__dot'),
   firstBlock = document.querySelector('.first'),
   secondBlock = document.querySelector('.second'),
   thirdBlock = document.querySelector('.third'),
   fourthBlock = document.querySelector('.fourth'),
-  fifthBlock = document.querySelector('.fifth');
-
+  fifthBlock = document.querySelector('.fifth'),
+  blocks = [firstBlock, secondBlock, thirdBlock, fourthBlock, fifthBlock];
 
 let scrollToBlock = (block) => {
   block.scrollIntoView({
-    block: 'end',
+    block: 'center',
     behavior: 'smooth'
   });
 };
 
-//Change header and footer color scroll
-
-
-
-
-// document.addEventListener('wheel', (e) => {
-
-//   if (e.deltaY < 0) {
-//     scrollToBlock(firstBlock)
-//   } else if (e.deltaY > 0) {
-//     scrollToBlock(secondBlock)
-//   }
-
-// })
-
-const headerMenuName = document.querySelector('.header__menu'),
-headerLine = document.querySelector('.header__menu-line');
-const blocks = [firstBlock, secondBlock, thirdBlock, fourthBlock, fifthBlock]
-
 navDots.forEach((dot, i) => {
   dot.addEventListener('click', () => {
-
-    blocks.forEach(item => {
-      item.classList.remove('active')
-    });
 
     switch(i) {
       case 0:
         scrollToBlock(firstBlock)
-        firstBlock.classList.add('active')
         break
       case 1:
         scrollToBlock(secondBlock)
-        secondBlock.classList.add('active')
         break
       case 2:
         scrollToBlock(thirdBlock)
-        thirdBlock.classList.add('active')
         break
       case 3:
         scrollToBlock(fourthBlock)
-        fourthBlock.classList.add('active')
         break
       case 4:
         scrollToBlock(fifthBlock)
-        fifthBlock.classList.add('active')
         break
-    }
-
-    if (firstBlock.classList.contains('active')) {
-      headerMenuName.classList.remove('red-color')
-      headerMenuName.classList.add('grey-color')
-      headerLine.classList.remove('red-background')
-      headerLine.classList.add('grey-background')
-    } else  {
-      headerMenuName.classList.remove('grey-color')
-      headerMenuName.classList.add('red-color')
-      headerLine.classList.remove('grey-background')
-      headerLine.classList.add('red-background')
     }
   })
 });
 
-//Menu open
+//Main menu open
+
+const headerMenuName = document.querySelector('.header__menu'),
+headerLine = document.querySelector('.header__menu-line'),
+footerLinks = document.querySelectorAll('.footer__link-icon');
 
 const menuBtn = document.querySelector('.header__menu-name'),
  mainMenu = document.querySelector('.menu');
 
 const openBlockMenu = () => {
-  mainMenu.classList.toggle('display-flex')
-}
+  mainMenu.classList.toggle('display-flex');
+};
 
 const openSlowMenu = () => {
-  mainMenu.classList.toggle('opacity-show')
-}
+  mainMenu.classList.toggle('opacity-show');
+};
 
 menuBtn.addEventListener('click', () => {
   
+  if (!(mainBlock.scrollTop >= blockHeight)) {
+    headerMenuName.classList.toggle('red-color')
+    headerLine.classList.toggle('red-background')
+    footerLinks.forEach(link => {
+      link.classList.toggle('red-fill')
+    })
+  } 
+  
   if (!mainMenu.classList.contains('display-flex')) {
-    openBlockMenu()
-    setTimeout(openSlowMenu, 100)
+    openBlockMenu();
+    setTimeout(openSlowMenu, 100);
   } else {
-    openSlowMenu()
-    setTimeout(openBlockMenu, 800)
+    openSlowMenu();
+    setTimeout(openBlockMenu, 800);
   }
   
 });
 
-
-
-let blockHeight = getComputedStyle(firstBlock).height
-
-// const btn = document.querySelector('.right-panel__active');
-// blockHeight = blockHeight.slice(0, -2)
-
-// document.addEventListener('click', () => {
-  
-//   window.scrollBy({
-//     top: blockHeight,
-//     behavior: 'smooth'
-//   })
-// });
 
 //About btn open text 
 
@@ -133,3 +92,49 @@ aboutBtn.addEventListener('click', () => {
   }
   
 });
+
+
+//Change color width scroll
+
+const mainBlock = document.querySelector('.main');
+let blockHeight = getComputedStyle(firstBlock).height.slice(0, -2)
+
+  mainBlock.addEventListener('scroll', () => {
+
+    if (mainBlock.scrollTop >= blockHeight) {
+      headerMenuName.classList.add('red-color')
+      headerLine.classList.add('red-background')
+      footerLinks.forEach(link => {
+        link.classList.add('red-fill')
+      })
+    } else {
+      headerMenuName.classList.remove('red-color')
+      headerLine.classList.remove('red-background')
+      footerLinks.forEach(link => {
+        link.classList.remove('red-fill')
+      })
+    }
+
+    navDots.forEach(dot => {
+
+      if (mainBlock.scrollTop < blockHeight) {
+        dot.classList.remove('red-background-dot')
+        navDots[0].classList.add('red-background-dot')
+      } else if (mainBlock.scrollTop >= blockHeight && mainBlock.scrollTop < (blockHeight * 2)) {
+        dot.classList.remove('red-background-dot')
+        navDots[1].classList.add('red-background-dot')
+      } else if (mainBlock.scrollTop >= (blockHeight * 2) && mainBlock.scrollTop < (blockHeight * 3)) {
+        dot.classList.remove('red-background-dot')
+        navDots[2].classList.add('red-background-dot')
+      } else if (mainBlock.scrollTop >= (blockHeight * 3) && mainBlock.scrollTop < (blockHeight * 4)) {
+        dot.classList.remove('red-background-dot')
+        navDots[3].classList.add('red-background-dot')
+      } else if (mainBlock.scrollTop >= (blockHeight * 4) && mainBlock.scrollTop < (blockHeight * 5)) {
+        dot.classList.remove('red-background-dot')
+        navDots[4].classList.add('red-background-dot')
+      }
+    })
+  });
+
+  
+
