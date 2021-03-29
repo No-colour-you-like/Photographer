@@ -1,4 +1,3 @@
-// Navigation width dots
 
 const navDots = document.querySelectorAll('.right-panel__dot'),
   firstBlock = document.querySelector('.first'),
@@ -8,12 +7,44 @@ const navDots = document.querySelectorAll('.right-panel__dot'),
   fifthBlock = document.querySelector('.fifth'),
   blocks = [firstBlock, secondBlock, thirdBlock, fourthBlock, fifthBlock];
 
+const menuLinks = document.querySelectorAll('.menu__link'),
+rightPanel = document.querySelector('.right-panel');
+
 let scrollToBlock = (block) => {
   block.scrollIntoView({
     block: 'center',
     behavior: 'smooth'
   });
 };
+
+//Menu navigation 
+
+menuLinks.forEach((link, i) => {
+  link.addEventListener('click', (e) => {
+
+    e.preventDefault();
+
+    switch(i) {
+      case 0:
+        scrollToBlock(firstBlock)
+        break
+      case 1:
+        scrollToBlock(secondBlock)
+        break
+      case 2:
+        scrollToBlock(thirdBlock)
+        break
+      case 3:
+        scrollToBlock(fourthBlock)
+        break
+      case 4:
+        scrollToBlock(fifthBlock)
+        break
+    }
+  });
+});
+
+// Navigation width dots
 
 navDots.forEach((dot, i) => {
   dot.addEventListener('click', () => {
@@ -64,6 +95,7 @@ const openLeftBlock = () => {
 
 menuBtn.addEventListener('click', () => {
   
+  rightPanel.classList.toggle('right-panel-transform')
 
   if (!(mainBlock.scrollTop >= blockHeight)) {
     headerMenu.classList.toggle('red-color')
