@@ -228,4 +228,57 @@ let blockHeight = getComputedStyle(firstBlock).height.slice(0, -2)
   });
 
   
+//Open photo in slider
 
+const sliderImage = document.querySelectorAll('.third__line-image'),
+sliderMainWrapper = document.querySelector('.third__main-photo'),
+sliderMainImg = document.querySelector('.third__main-img'),
+sliderMainWebp = document.querySelector('.third__main-webp');
+
+sliderImage.forEach((slide, i) => {
+
+  slide.addEventListener('click', () => {
+
+    sliderImage.forEach(slide => {
+      slide.classList.remove('active')
+    })
+
+    sliderImage[i].classList.add('active')
+
+    sliderMainWrapper.classList.remove('opacity-show-slow')
+    sliderMainWrapper.classList.add('opacity-hide')
+
+    setTimeout(function() {
+      switch(i) {
+        case 0: 
+          sliderMainImg.setAttribute('src', 'img/1.img')
+          sliderMainWebp.setAttribute('srcset', 'img/1.webp')
+          break 
+        case 1: 
+          sliderMainImg.setAttribute('src', 'img/2.img')
+          sliderMainWebp.setAttribute('srcset', 'img/2.webp')
+          break 
+        case 2: 
+          sliderMainImg.setAttribute('src', 'img/3.img')
+          sliderMainWebp.setAttribute('srcset', 'img/3.webp')
+          break
+        case 3: 
+          sliderMainImg.setAttribute('src', 'img/4.img')
+          sliderMainWebp.setAttribute('srcset', 'img/4.webp')
+          break 
+        case 4: 
+          sliderMainImg.setAttribute('src', 'img/5.img')
+          sliderMainWebp.setAttribute('srcset', 'img/5.webp')
+          break 
+      } 
+    }, 900)
+    
+    setTimeout(function() {
+      sliderMainWrapper.classList.remove('opacity-hide')
+      sliderMainWrapper.classList.add('opacity-show-slow')
+    }, 1000)
+
+
+  });
+
+});
