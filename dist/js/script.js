@@ -128,18 +128,54 @@ menuBtn.addEventListener('click', () => {
 //About btn open text 
 
 const secondPhoto = document.querySelector('.second__photo'),
+secondInfo = document.querySelector('.second__info'),
+secondSubtitle = document.querySelector('.second__subtitle'),
+secondSeeAll = document.querySelector('.second__see-all'),
 aboutBtn = document.querySelector('.about-see-btn');
 
 aboutBtn.addEventListener('click', () => {
  
-  if (!secondPhoto.classList.contains('second-photo-open')) {
-    secondPhoto.classList.remove('second-photo-hide')
-    secondPhoto.classList.add('second-photo-open')
-  } else {
-    secondPhoto.classList.remove('second-photo-open')
-    secondPhoto.classList.add('second-photo-hide')
+  secondBlock.classList.toggle('second-add-bg')
+  aboutBtn.classList.toggle('animation-none')
+
+  function photoMove() {
+    if (!secondPhoto.classList.contains('second-photo-open')) {
+      secondPhoto.classList.remove('second-photo-hide')
+      secondPhoto.classList.add('second-photo-open')
+    } else {
+      secondPhoto.classList.remove('second-photo-open')
+      secondPhoto.classList.add('second-photo-hide')
+    }
   }
-  
+
+  function secondInfoOpen() {
+    secondInfo.classList.toggle('second-info-open')
+  }
+
+  function subtitleOpen() {
+    secondSubtitle.classList.toggle('subtitle-open')
+  }
+
+  if (!secondPhoto.classList.contains('second-photo-open')) {
+    secondInfoOpen()
+    setTimeout(photoMove, 1000)
+    setTimeout(subtitleOpen, 3000)
+    secondSeeAll.classList.add('visibility-hidden')
+    aboutBtn.classList.add('second-btn-animation')
+  } else {
+    secondSubtitle.scrollTo(0, 0)
+    subtitleOpen()
+    photoMove()
+    setTimeout(secondInfoOpen, 1800)
+    setTimeout(function() {
+      secondSeeAll.innerHTML = 'Прочитать всю историю'
+      secondSeeAll.classList.remove('visibility-hidden')
+      aboutBtn.classList.remove('second-btn-animation')
+    }, 2000)
+    
+  }
+
+
 });
 
 

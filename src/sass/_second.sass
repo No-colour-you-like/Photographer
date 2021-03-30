@@ -1,37 +1,61 @@
 .second
+  position: relative
   display: flex
   height: 100%
   background-color: $grey-color
   scroll-snap-align: start
+  transition: 1s
+  &:before 
+    position: absolute
+    content: ''
+    width: 100%
+    height: 100%
+    background: url(../img/about-bg.png) no-repeat 
+    background-size: auto 100%
+    opacity: 0
+    transition: 2s
   &__photo 
-    width: 470px
-    height: 430px
-    margin: 175px 85px 0 0
+    position: absolute
+    top: 50%
+    transform: translate(0, -50%) 
+    left: 0
+    width: 900px
   &__info 
-    max-width: 700px
-    margin-top: 140px
+    position: absolute
+    width: 1000px
+    top: 15%
+    left: 1200px
     color: $red-color
+    transition: 1s
   &__uppertitle 
-    font-size: 16px
+    font-size: 25px
     margin-bottom: 20px 
   &__title 
-    font-size: 48px 
+    font-size: 80px 
     margin-bottom: 50px 
   &__subtitle 
-    font-size: 14px
+    position: relative
+    max-height: 300px
+    font-size: 20px
     line-height: 2
     color: $grey-light-color
     margin: 0 0 30px 40px 
+    padding: 20px
+    overflow: hidden
+    transition: 1s
+    &::first-letter
+      font-size: 60px
+      font-weight: bold
+      line-height: 0.5
+  &__subtitle::-webkit-scrollbar 
+    width: 10px
+    overflow: hidden
+  &__subtitle::-webkit-scrollbar-thumb 
+    background-color: $red-color
+  &__see-all
+    opacity: 1
+    transition: 1.5s
 
+.about-see-btn 
+  transition: 1s
 
-.line 
-  position: absolute
-  top: 50% 
-  left: 50%
-  transform: translate(-50%, -50%)
-  width: 10px
-  height: 2px 
-  background-color: $red-color
-  &-second 
-    width: 2px 
-    height: 10px

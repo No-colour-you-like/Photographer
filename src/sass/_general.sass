@@ -59,15 +59,37 @@ img
   display: flex 
   align-items: center
   &-text 
-    font-size: 12px
+    font-size: 15px
     font-weight: 700
     text-transform: uppercase
-    margin-right: 14px 
+    margin-right: 20px 
     color: $red-color
   &-btn 
     position: relative
-    width: 32px 
-    height: 32px 
+    width: 50px 
+    height: 50px 
     border-radius: 50%
     background-color: #000
     cursor: pointer
+    animation: pulse 3s infinite
+
+@keyframes pulse
+  0%
+    box-shadow: 0 0 -5px $red-color
+  50% 
+    box-shadow: 0 0 20px $red-color
+  100%
+    box-shadow: 0 0 -5px $red-color
+    
+
+.line 
+  position: absolute
+  top: 50% 
+  left: 50%
+  transform: translate(-50%, -50%)
+  width: 20px
+  height: 2px 
+  background-color: $red-color
+  &-second 
+    width: 2px 
+    height: 20px
