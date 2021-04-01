@@ -174,8 +174,6 @@ aboutBtn.addEventListener('click', () => {
     }, 2000)
     
   }
-
-
 });
 
 
@@ -248,27 +246,33 @@ sliderImage.forEach((slide, i) => {
     sliderMainWrapper.classList.remove('opacity-show-slow')
     sliderMainWrapper.classList.add('opacity-hide')
 
+    function setAttributeImg(num) {
+      sliderMainImg.setAttribute('src', `img/${num}.img`)
+      sliderMainWebp.setAttribute('srcset', `img/${num}.webp`)
+    }
+
     setTimeout(function() {
       switch(i) {
         case 0: 
-          sliderMainImg.setAttribute('src', 'img/1.img')
-          sliderMainWebp.setAttribute('srcset', 'img/1.webp')
+          setAttributeImg('1')
           break 
         case 1: 
-          sliderMainImg.setAttribute('src', 'img/2.img')
-          sliderMainWebp.setAttribute('srcset', 'img/2.webp')
+          setAttributeImg('2')
           break 
         case 2: 
-          sliderMainImg.setAttribute('src', 'img/3.img')
-          sliderMainWebp.setAttribute('srcset', 'img/3.webp')
+          setAttributeImg('3')
           break
         case 3: 
-          sliderMainImg.setAttribute('src', 'img/4.img')
-          sliderMainWebp.setAttribute('srcset', 'img/4.webp')
+          setAttributeImg('4')
           break 
         case 4: 
-          sliderMainImg.setAttribute('src', 'img/5.img')
-          sliderMainWebp.setAttribute('srcset', 'img/5.webp')
+          setAttributeImg('5')
+          break 
+        case 5: 
+          setAttributeImg('6')
+          break 
+        case 6: 
+          setAttributeImg('7')
           break 
       } 
     }, 900)
@@ -278,7 +282,76 @@ sliderImage.forEach((slide, i) => {
       sliderMainWrapper.classList.add('opacity-show-slow')
     }, 1000)
 
-
   });
+});
+
+//Works slider 
+
+const sliderPhotos = document.querySelector('.third__line-photos'),
+sliderPhoto = document.querySelector('.third__line-image'),
+sliderNextBtn = document.querySelector('.third__btn-next'),
+sliderPrevBtn = document.querySelector('.third__btn-prev');
+
+let offset = 0,
+wrapperWidth = getComputedStyle(sliderPhotos).width;
+
+sliderNextBtn.addEventListener('click', () => {
+
+    if (offset == wrapperWidth.slice(0, -2) - sliderPhoto.offsetWidth * 3) {
+      offset = 0
+    } else {
+      offset += sliderPhoto.offsetWidth
+    }
+
+  sliderPhotos.style.transform = `translateX(-${offset}px)`
+
+});
+
+sliderPrevBtn.addEventListener('click', () => {
+
+  if (offset == 0) {
+    offset = wrapperWidth.slice(0, -2) - sliderPhoto.offsetWidth * 3
+  } else {
+    offset -= sliderPhoto.offsetWidth
+  }
+
+sliderPhotos.style.transform = `translateX(-${offset}px)`
+
+});
+
+//Works open/close full image 
+
+const worksOpenBtn = document.querySelector('.third__see-all-btn'),
+sliderWrapper = document.querySelector('.third__line'),
+worksCloseBlock = document.querySelector('.third__close'),
+worksCloseBtn = document.querySelector('.third__close-btn');
+
+worksOpenBtn.addEventListener('click', () => {
+
+  sliderWrapper.classList.add('slider-down')  
+  sliderMainWrapper.classList.add('main-photo-transform')
+  headerMenu.classList.add('opacity-hide')
+  rightPanel.classList.add('right-panel-transform')
+
+  footerLinks.forEach(link => {
+    link.classList.add('opacity-hide')
+  })
+
+  worksCloseBlock.classList.add('opacity-show-slow')
+  
+});
+
+worksCloseBtn.addEventListener('click', () => {
+
+  sliderWrapper.classList.remove('slider-down')  
+  sliderMainWrapper.classList.remove('main-photo-transform')
+  headerMenu.classList.remove('opacity-hide')
+  rightPanel.classList.remove('right-panel-transform')
+
+  footerLinks.forEach(link => {
+    link.classList.remove('opacity-hide')
+  })
+
+  worksCloseBlock.classList.remove('opacity-show-slow')
 
 });
