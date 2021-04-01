@@ -324,6 +324,7 @@ sliderPhotos.style.transform = `translateX(-${offset}px)`
 const worksOpenBtn = document.querySelector('.third__see-all-btn'),
 sliderWrapper = document.querySelector('.third__line'),
 worksCloseBlock = document.querySelector('.third__close'),
+worksText = document.querySelector('.third__text'),
 worksCloseBtn = document.querySelector('.third__close-btn');
 
 worksOpenBtn.addEventListener('click', () => {
@@ -337,6 +338,7 @@ worksOpenBtn.addEventListener('click', () => {
     link.classList.add('opacity-hide')
   })
 
+  worksText.classList.add('opacity-hide')
   worksCloseBlock.classList.add('opacity-show-slow')
   
 });
@@ -352,6 +354,24 @@ worksCloseBtn.addEventListener('click', () => {
     link.classList.remove('opacity-hide')
   })
 
+  worksText.classList.remove('opacity-hide')
   worksCloseBlock.classList.remove('opacity-show-slow')
+
+});
+
+
+// Clients open text 
+
+const clientsBtn = document.querySelector('.fourth__see-all-btn'),
+clientsLogos = document.querySelector('.fourth__logos'),
+clientsLogoWrapper = document.querySelectorAll('.fourth__logo-wrapper');
+
+clientsBtn.addEventListener('click', () => {
+
+  clientsLogos.classList.toggle('logos-transform')
+  clientsLogoWrapper.forEach(logo => {
+    logo.classList.toggle('logo-wrapper-transform')
+  })
+
 
 });
