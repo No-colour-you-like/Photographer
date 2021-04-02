@@ -118,7 +118,22 @@
     opacity: 0
     transition: 0.3s
 
-.logo-wrapper-transform 
+.logo-wrapper-transform
+  position: relative 
+  cursor: pointer
+  &:before 
+    position: absolute
+    content: ''
+    top: 10px
+    left: -80px
+    width: 10px
+    height: 90px
+    background-color: $red-color
+    opacity: 0
+    transition: 0.2s
+  &:hover 
+    &:before 
+      opacity: 1
   &:nth-child(1), &:nth-child(3), &:nth-child(5), &:nth-child(7) 
     transform: translateX(0)
   &:nth-child(2)

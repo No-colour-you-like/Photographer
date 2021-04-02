@@ -363,15 +363,100 @@ worksCloseBtn.addEventListener('click', () => {
 // Clients open text 
 
 const clientsBtn = document.querySelector('.fourth__see-all-btn'),
+clientsBtnBlock = document.querySelector('.fourth__see-all'),
+clientsBtnClose = document.querySelector('.fourth__see-all-close'),
 clientsLogos = document.querySelector('.fourth__logos'),
-clientsLogoWrapper = document.querySelectorAll('.fourth__logo-wrapper');
+clientsLogoWrapper = document.querySelectorAll('.fourth__logo-wrapper'),
+clientsTitleMain = document.querySelector('.fourth__title-main'),
+clientsTitleHidden = document.querySelectorAll('.fourth__title-hidden'),
+clientsSubtitleMain = document.querySelector('.fourth__subtitle-main'),
+clientsSubtitleHidden = document.querySelectorAll('.fourth__subtitle-hidden');
 
 clientsBtn.addEventListener('click', () => {
 
-  clientsLogos.classList.toggle('logos-transform')
+  clientsLogos.classList.add('logos-transform')
   clientsLogoWrapper.forEach(logo => {
-    logo.classList.toggle('logo-wrapper-transform')
+    logo.classList.add('logo-wrapper-transform')
   })
 
+  clientsTitleMain.classList.add('opacity-hide')
+  clientsTitleHidden[0].classList.add('opacity-show')
+  clientsSubtitleMain.classList.add('opacity-hide')
+  clientsSubtitleHidden[0].classList.add('opacity-show')
+
+  clientsBtnBlock.classList.add('opacity-hide')
+  clientsBtnClose.classList.add('opacity-show')
+
+});
+
+clientsLogoWrapper.forEach((logo, i) => {
+
+    logo.addEventListener('click', () => {
+
+      if (clientsLogoWrapper[0].classList.contains('logo-wrapper-transform')) {
+
+        clientsTitleHidden.forEach(title => {
+          title.classList.remove('opacity-show')
+        })
+
+        clientsSubtitleHidden.forEach(subtitle => {
+          subtitle.classList.remove('opacity-show')
+        })
+    
+        function addOpacityShow(i) {
+          clientsTitleHidden[i].classList.add('opacity-show')
+          clientsSubtitleHidden[i].classList.add('opacity-show')
+        }
+    
+        switch(i) {
+          case 0: 
+            addOpacityShow(0);
+            break
+          case 1: 
+            addOpacityShow(1);
+            break
+          case 2: 
+            addOpacityShow(2);
+            break
+          case 3: 
+            addOpacityShow(3);
+            break
+          case 4: 
+            addOpacityShow(4);
+            break
+          case 5: 
+            addOpacityShow(5);
+            break
+          case 6: 
+            addOpacityShow(6);
+            break
+          case 7: 
+            addOpacityShow(7);
+            break
+          case 8: 
+            addOpacityShow(8);
+            break
+        }
+      }
+  })
+});
+
+clientsBtnClose.addEventListener('click', () => {
+
+  clientsTitleMain.classList.remove('opacity-hide')
+  clientsTitleHidden[0].classList.remove('opacity-show')
+  clientsSubtitleMain.classList.remove('opacity-hide')
+
+  clientsSubtitleHidden.forEach(client => {
+    client.classList.remove('opacity-show')
+  });
+
+  clientsBtnBlock.classList.remove('opacity-hide')
+  clientsBtnClose.classList.remove('opacity-show')
+
+  clientsLogos.classList.remove('logos-transform')
+  clientsLogoWrapper.forEach(logo => {
+    logo.classList.remove('logo-wrapper-transform')
+  })
 
 });

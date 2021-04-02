@@ -57,21 +57,44 @@
         transform: translateY(-100px)
       &:nth-child(8)
         transform: translateY(-200px)
-        
   &__info 
-    margin-top: 140px
+    position: absolute
+    top: 140px
+    left: 850px
     color: $red-color
   &__uppertitle 
     font-size: 16px 
     margin-bottom: 20px 
   &__title 
+    position: relative
     font-size: 48px
-    margin-bottom: 48px 
+    // margin-bottom: 48px 
+    transition: 0.5s
+    &-main
+      position: absolute
+    &-hidden
+      position: absolute
+      opacity: 0
+      transition: 0.5s
   &__subtitle 
+    position: relative
     font-size: 14px 
     line-height: 2 
     color: $grey-light-color
-    margin: 0 0 40px 40px 
+    margin: 80px 0 40px 40px 
+    &-hidden
+      position: absolute
+      top: 0
+      left: 0
+      opacity: 0
+      transition: 0.5s
+  &__see-all
+    &-close 
+      position: absolute
+      right: 0
+      top: 0
+      opacity: 0
+      transition: 0.5s
 
 
 
