@@ -19,8 +19,12 @@
     background-color: $grey-color
     transform: translateX(-100%)
     transition: 2s
+    @include media(768px)  
+      width: 200px
   &__list 
     margin-left: 150px 
+    @include media(768px)  
+      margin-left: 50px
   &__name 
     margin-bottom: 20px
   &__link 
@@ -43,6 +47,8 @@
         opacity: 1
         visibility: visible
         transition: visibility 0.5s, opacity 0.5s
+    @include media(768px)  
+      font-size: 30px
 
         
       

@@ -27,7 +27,11 @@
     @include media(1300px)
       width: 400px
     @include media(1100px)
-      width: 250px
+      width: 300px
+    @include media(992px)  
+      width: 200px
+    @include media(576px)
+      display: none 
   &__info
     position: absolute
     max-width: 1000px
@@ -43,7 +47,14 @@
     @include media(1300px)
       left: 450px 
     @include media(1100px) 
-      left: 250px
+      left: 350px
+    @include media(992px)   
+      left: 200px
+    @include media(768px)   
+      margin-right: 100px
+    @include media(576px)   
+      left: 20px
+      margin-right: 90px
   &__uppertitle 
     font-size: 25px
     margin-bottom: 20px 
@@ -54,6 +65,8 @@
     margin-bottom: 50px 
     @include media(1300px)
       font-size: 50px
+    @include media(992px)  
+      margin-bottom: 20px
   &__subtitle 
     position: relative
     max-height: 300px
@@ -71,6 +84,8 @@
       letter-spacing: 5px
     @include media(1600px) 
       font-size: 15px
+    @include media(992px)  
+      font-size: 12px
   &__subtitle::-webkit-scrollbar 
     width: 10px
     overflow: hidden
