@@ -20,33 +20,57 @@
     transform: translate(0, -50%) 
     left: 0
     width: 900px
-  &__info 
+    @include media(2000px) 
+      width: 600px
+    @include media(1600px)  
+      width: 500px
+    @include media(1300px)
+      width: 400px
+    @include media(1100px)
+      width: 250px
+  &__info
     position: absolute
-    width: 1000px
+    max-width: 1000px
+    margin-right: 250px
     top: 15%
     left: 1200px
     color: $red-color
     transition: 1s
+    @include media(2000px)  
+      left: 700px
+    @include media(1600px) 
+      left: 600px
+    @include media(1300px)
+      left: 450px 
+    @include media(1100px) 
+      left: 250px
   &__uppertitle 
     font-size: 25px
     margin-bottom: 20px 
+    @include media(1300px) 
+      font-size: 20px
   &__title 
     font-size: 80px 
     margin-bottom: 50px 
+    @include media(1300px)
+      font-size: 50px
   &__subtitle 
     position: relative
     max-height: 300px
     font-size: 20px
     line-height: 2
     color: $grey-light-color
-    margin: 0 0 30px 40px 
+    margin: 0 0 20px 20px 
     padding: 20px
     overflow: hidden
     transition: 1s
     &::first-letter
-      font-size: 60px
+      font-size: 50px
       font-weight: bold
       line-height: 0.5
+      letter-spacing: 5px
+    @include media(1600px) 
+      font-size: 15px
   &__subtitle::-webkit-scrollbar 
     width: 10px
     overflow: hidden

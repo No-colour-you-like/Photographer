@@ -274,6 +274,24 @@ sliderImage.forEach((slide, i) => {
         case 6: 
           setAttributeImg('7')
           break 
+        case 7: 
+          setAttributeImg('8')
+          break 
+        case 8: 
+          setAttributeImg('9')
+          break 
+        case 9: 
+          setAttributeImg('10')
+          break 
+        case 10: 
+          setAttributeImg('11')
+          break 
+        case 11: 
+          setAttributeImg('12')
+          break 
+        case 12: 
+          setAttributeImg('13')
+          break 
       } 
     }, 900)
     
@@ -297,7 +315,7 @@ wrapperWidth = getComputedStyle(sliderPhotos).width;
 
 sliderNextBtn.addEventListener('click', () => {
 
-    if (offset == wrapperWidth.slice(0, -2) - sliderPhoto.offsetWidth * 3) {
+    if (offset == +wrapperWidth.slice(0, -2) + sliderPhoto.offsetWidth) {
       offset = 0
     } else {
       offset += sliderPhoto.offsetWidth
@@ -310,7 +328,7 @@ sliderNextBtn.addEventListener('click', () => {
 sliderPrevBtn.addEventListener('click', () => {
 
   if (offset == 0) {
-    offset = wrapperWidth.slice(0, -2) - sliderPhoto.offsetWidth * 3
+    offset = +wrapperWidth.slice(0, -2) + sliderPhoto.offsetWidth
   } else {
     offset -= sliderPhoto.offsetWidth
   }
@@ -325,7 +343,8 @@ const worksOpenBtn = document.querySelector('.third__see-all-btn'),
 sliderWrapper = document.querySelector('.third__line'),
 worksCloseBlock = document.querySelector('.third__close'),
 worksText = document.querySelector('.third__text'),
-worksCloseBtn = document.querySelector('.third__close-btn');
+worksCloseBtn = document.querySelector('.third__close-btn'),
+worksRightText = document.querySelector('.third__right-text');
 
 worksOpenBtn.addEventListener('click', () => {
 
@@ -340,6 +359,8 @@ worksOpenBtn.addEventListener('click', () => {
 
   worksText.classList.add('opacity-hide')
   worksCloseBlock.classList.add('opacity-show-slow')
+  worksRightText.classList.add('opacity-show-slow')
+
   
 });
 
@@ -356,6 +377,7 @@ worksCloseBtn.addEventListener('click', () => {
 
   worksText.classList.remove('opacity-hide')
   worksCloseBlock.classList.remove('opacity-show-slow')
+  worksRightText.classList.remove('opacity-show-slow')
 
 });
 
@@ -373,6 +395,8 @@ clientsSubtitleMain = document.querySelector('.fourth__subtitle-main'),
 clientsSubtitleHidden = document.querySelectorAll('.fourth__subtitle-hidden');
 
 clientsBtn.addEventListener('click', () => {
+
+  rightPanel.classList.add('right-panel-transform')
 
   clientsLogos.classList.add('logos-transform')
   clientsLogoWrapper.forEach(logo => {
@@ -443,9 +467,14 @@ clientsLogoWrapper.forEach((logo, i) => {
 
 clientsBtnClose.addEventListener('click', () => {
 
+  rightPanel.classList.remove('right-panel-transform')
+
   clientsTitleMain.classList.remove('opacity-hide')
-  clientsTitleHidden[0].classList.remove('opacity-show')
   clientsSubtitleMain.classList.remove('opacity-hide')
+
+  clientsTitleHidden.forEach(client => {
+    client.classList.remove('opacity-show')
+  });
 
   clientsSubtitleHidden.forEach(client => {
     client.classList.remove('opacity-show')
@@ -458,5 +487,25 @@ clientsBtnClose.addEventListener('click', () => {
   clientsLogoWrapper.forEach(logo => {
     logo.classList.remove('logo-wrapper-transform')
   })
+
+});
+
+// Contact right panel open
+
+const contactBtn = document.querySelector('.fifth__see-all'),
+contactBlock = document.querySelector('.fifth__contact'),
+contactBlockCloseBtn = document.querySelector('.fifth__see-all-close-btn');
+
+contactBtn.addEventListener('click', () => {
+
+  rightPanel.classList.add('right-panel-transform')
+  contactBlock.classList.add('contact-transform')
+  
+});
+
+contactBlockCloseBtn.addEventListener('click', () => {
+
+  rightPanel.classList.remove('right-panel-transform')
+  contactBlock.classList.remove('contact-transform')
 
 });

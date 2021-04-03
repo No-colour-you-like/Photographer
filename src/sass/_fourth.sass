@@ -11,27 +11,26 @@
     height: 100%
     background: url(../img/about-bg.png) no-repeat 
     background-size: auto 100%
-    opacity: 1
+    opacity: 0.1
     transition: 2s
   &__logos 
-    position: relative
-    width: 520px 
-    height: 665px 
-    padding-right: 90px
+    position: absolute
+    width: 710px 
+    height: 90%
+    padding: 150px 90px 40px 90px
+    left: 20%
     display: flex
     flex-direction: column
     justify-content: center
     align-items: flex-end
-    margin: 0 85px 0 255px
     background-color: #111114
-    overflow: hidden
     transition: 1s
     &:after 
       position: absolute
       content: ''
-      width: 212px 
-      height: 12px
-      bottom: -6px
+      width: 40%
+      height: 20px
+      bottom: -10px
       right: 0
       background-color: $red-color
       transition: 2s
@@ -40,35 +39,37 @@
     height: 100%
     object-fit: contain
     &-wrapper 
-      width: 120px
-      height: 120px
+      width: 220px
+      height: 220px
       transition: 1s
       &:nth-child(1)
-        transform: translate(-200px, 200px)
+        transform: translate(-300px, 400px)
       &:nth-child(3)
-        transform: translate(-200px, 100px)
+        transform: translate(-300px, 220px)
       &:nth-child(5)
-        transform: translateX(-200px)
+        transform: translateX(-300px)
       &:nth-child(7)
-        transform: translate(-200px, -100px)
+        transform: translate(-300px, -220px)
       &:nth-child(2)
-        transform: translateY(100px)
+        transform: translateY(200px)
       &:nth-child(6)
-        transform: translateY(-100px)
+        transform: translateY(-220px)
       &:nth-child(8)
-        transform: translateY(-200px)
+        transform: translateY(-430px)
   &__info 
     position: absolute
+    max-width: 40%
     top: 140px
-    left: 850px
+    left: 52%
     color: $red-color
   &__uppertitle 
-    font-size: 16px 
-    margin-bottom: 20px 
+    font-size: 25px 
+    margin-bottom: 30px 
   &__title 
     position: relative
-    font-size: 48px
-    // margin-bottom: 48px 
+    font-size: 65px
+    text-transform: uppercase
+    font-weight: 700
     transition: 0.5s
     &-main
       position: absolute
@@ -78,10 +79,15 @@
       transition: 0.5s
   &__subtitle 
     position: relative
-    font-size: 14px 
+    font-size: 25px 
     line-height: 2 
     color: $grey-light-color
-    margin: 80px 0 40px 40px 
+    margin: 160px 0 40px 40px 
+    &::first-letter
+      font-size: 50px
+      font-weight: bold
+      line-height: 0.5
+      letter-spacing: 5px
     &-hidden
       position: absolute
       top: 0
