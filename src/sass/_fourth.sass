@@ -34,6 +34,14 @@
       right: 0
       background-color: $red-color
       transition: 2s
+    @include media(1900px) 
+      width: 680px
+      left: 10%
+    @include media(1500px)
+      width: 500px
+      left: 0
+    @include media(576px)
+      width: 430px
   &__logo
     width: 100%
     height: 100%
@@ -43,28 +51,61 @@
       height: 220px
       transition: 1s
       &:nth-child(1)
-        transform: translate(-300px, 400px)
+        transform: translate(-300px, 380px)
       &:nth-child(3)
-        transform: translate(-300px, 220px)
+        transform: translate(-300px, 180px)
       &:nth-child(5)
-        transform: translateX(-300px)
+        transform: translate(-300px, -40px)
       &:nth-child(7)
-        transform: translate(-300px, -220px)
+        transform: translate(-300px, -250px)
       &:nth-child(2)
         transform: translateY(200px)
       &:nth-child(6)
         transform: translateY(-220px)
       &:nth-child(8)
         transform: translateY(-430px)
+      @include media(1900px)
+        width: 180px
+        height: 180px
+      @include media(1500px)
+        width: 100px
+        height: 150px
+        &:nth-child(1)
+          transform: translate(-200px, 350px)
+        &:nth-child(3)
+          transform: translate(-200px, 150px)
+        &:nth-child(5)
+          transform: translate(-200px, -60px)
+        &:nth-child(7)
+          transform: translate(-200px, -280px)
+        &:nth-child(2)
+           transform: translateY(200px)
+        &:nth-child(6)
+          transform: translateY(-220px)
+        &:nth-child(8)
+          transform: translateY(-430px)
   &__info 
     position: absolute
     max-width: 40%
     top: 140px
     left: 52%
     color: $red-color
+    @include media(1500px)
+      left: 45%
+    @include media(1500px)
+      left: 50%
+    @include media(992px)
+      left: auto 
+      right: 200px
+    @include media(768px)
+      right: 80px
   &__uppertitle 
     font-size: 25px 
     margin-bottom: 30px 
+    @include media(1500px)
+      font-size: 20px
+    @include media(992px)
+      display: none
   &__title 
     position: relative
     font-size: 65px
@@ -77,6 +118,15 @@
       position: absolute
       opacity: 0
       transition: 0.5s
+    @include media(1900px)
+      font-size: 50px
+    @include media(1500px)
+      font-size: 35px
+    @include media(992px)
+      transform: rotate(-90deg) translateX(-200px)
+    @include media(576px)
+      font-size: 20px
+      transform: rotate(-90deg) translateX(0)
   &__subtitle 
     position: relative
     font-size: 25px 
@@ -94,7 +144,16 @@
       left: 0
       opacity: 0
       transition: 0.5s
+    @include media(1900px)
+      font-size: 20px
+    @include media(1500px)
+      font-size: 15px
+      margin: 100px 0 40px 40px 
+    @include media(992px)
+      display: none
   &__see-all
+    @include media(992px)
+      display: none
     &-close 
       position: absolute
       right: 0
