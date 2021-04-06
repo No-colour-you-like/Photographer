@@ -205,19 +205,19 @@ let blockHeight = getComputedStyle(firstBlock).height.slice(0, -2)
         dot.classList.remove('red-background-dot')
         navDots[0].classList.add('red-background-dot')
         asideCounter.innerHTML = '01'
-      } else if (mainBlock.scrollTop >= blockHeight && mainBlock.scrollTop < (blockHeight * 2)) {
+      } else if (mainBlock.scrollTop >= blockHeight && mainBlock.scrollTop <= (blockHeight * 2)) {
         dot.classList.remove('red-background-dot')
         navDots[1].classList.add('red-background-dot')
         asideCounter.innerHTML = '02'
-      } else if (mainBlock.scrollTop >= (blockHeight * 2) && mainBlock.scrollTop < (blockHeight * 3)) {
+      } else if (mainBlock.scrollTop > (blockHeight * 2) && mainBlock.scrollTop < (blockHeight * 3)) {
         dot.classList.remove('red-background-dot')
         navDots[2].classList.add('red-background-dot')
         asideCounter.innerHTML = '03'
-      } else if (mainBlock.scrollTop >= (blockHeight * 3) && mainBlock.scrollTop < (blockHeight * 4)) {
+      } else if (mainBlock.scrollTop > (blockHeight * 3) && mainBlock.scrollTop < (blockHeight * 4)) {
         dot.classList.remove('red-background-dot')
         navDots[3].classList.add('red-background-dot')
         asideCounter.innerHTML = '04'
-      } else if (mainBlock.scrollTop >= (blockHeight * 4) && mainBlock.scrollTop < (blockHeight * 5)) {
+      } else if (mainBlock.scrollTop > (blockHeight * 4) && mainBlock.scrollTop < (blockHeight * 5)) {
         dot.classList.remove('red-background-dot')
         navDots[4].classList.add('red-background-dot')
         asideCounter.innerHTML = '05'

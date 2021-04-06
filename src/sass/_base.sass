@@ -72,7 +72,7 @@
   transition: 1s
 
 .subtitle-open 
-  max-height: 600px
+  max-height: 400px
   overflow-y: auto
   transition: 1s
   &:before 
@@ -129,6 +129,8 @@
   &:after 
     opacity: 0
     transition: 0.3s
+  @include media(1500px)
+    width: 300px
 
 .logo-wrapper-transform
   position: relative 
@@ -158,6 +160,8 @@
 
 .contact-transform 
   transform: translateX(0)
+  @include media(768px)
+    transform: translateX(135px)
 
 @keyframes secondPhotoOpen
   0%
