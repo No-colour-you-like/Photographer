@@ -135,28 +135,24 @@
 .logo-wrapper-transform
   position: relative 
   cursor: pointer
+  min-height: 100px
+  margin: 10px 0
   &:before 
     position: absolute
     content: ''
-    top: 10px
     left: -90px
     width: 10px
-    height: inherit
+    height: 100px
     background-color: $red-color
     opacity: 0
     transition: 0.2s
   &:hover 
     &:before 
       opacity: 1
-  &:nth-child(1), &:nth-child(3), &:nth-child(5), &:nth-child(7) 
-    transform: translateX(0)
-  &:nth-child(2)
+  &:nth-child(even) 
     transform: translateY(0)
-  &:nth-child(6)
-    transform: translateY(0)
-  &:nth-child(8)
-    transform: translateY(0)
-    transition: 1s
+  &:nth-child(odd)
+     transform: translateY(0)
 
 .contact-transform 
   transform: translateX(0)
